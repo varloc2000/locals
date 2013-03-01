@@ -1,0 +1,4 @@
+locals_app:
+    resource: "@LocalsAppBundle/Resources/config/routing.xml"
+    prefix:   /
+
