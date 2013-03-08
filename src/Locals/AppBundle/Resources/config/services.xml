@@ -4,17 +4,16 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-    <!--
-    <parameters>
-        <parameter key="locals_app.example.class">Locals\AppBundle\Example</parameter>
-    </parameters>
-
     <services>
-        <service id="locals_app.example" class="%locals_app.example.class%">
-            <argument type="service" id="service_id" />
-            <argument>plain_value</argument>
-            <argument>%parameter_name%</argument>
+        <service id="filesystem.container_adapter.default" class="Locals\AppBundle\Cdn\Adapter\ContainerAdapter"/>
+
+		<service id="filesystem.cdn_factory.default" class="Locals\AppBundle\Cdn\Storage\CdnFactory">
+			<argument>%filesystem.cdn_factory.cdn_config%</argument>
+            <argument type="service" id="filesystem.container_adapter.default"></argument>
+		</service>
+        
+        <service id="filemanager.default" class="Locals\AppBundle\FileManager\FileManager">
+            <argument type="service" id="filesystem.cdn_factory.default"></argument>
         </service>
-    </services>
-    -->
+    </services> 
 </container>

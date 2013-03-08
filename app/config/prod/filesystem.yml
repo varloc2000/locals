@@ -1,0 +1,10 @@
+locals_app:
+    cdn:
+        default: "local"
+        repositories:
+            local:
+                storage: "\Locals\AppBundle\Cdn\Storage\\Local\Cdn"
+                options:
+                    schema: "local"
+                    url: "http://locals.locals/uploads"
+                    path: "%kernel.root_dir%/../data/uploads"

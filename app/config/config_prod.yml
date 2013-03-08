@@ -1,5 +1,7 @@
 imports:
     - { resource: config.yml }
+    - { resource: prod/parameters.yml }
+    - { resource: prod/filesystem.yml }
 
 #doctrine:
 #    orm:

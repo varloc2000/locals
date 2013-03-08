@@ -1,0 +1,15 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     locals
+    database_user:     root
+    database_password: 80177413
+
+    mailer_transport:  gmail
+    mailer_host:       localhost
+    mailer_user:       varloc2000@gmail.com
+    mailer_password:   2113142020171416
+
+    locale:            ru
+    secret:            ThisTokenIsNotSoSecretChangeIt
