@@ -1,0 +1,44 @@
+{% extends "LocalsUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+{% if error %}
+    <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+{% endif %}
+    <form action="{{ path("fos_user_security_check") }}" method="post" class="form-vertical">
+        <legend>{{ 'user_login_form'|trans|capitalize }}</legend>
+
+        <fieldset>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+            <div class="control-group">
+                <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on ft-icon-user"></span>
+                        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on ft-icon-lock"></span>
+                        <input type="password" id="password" name="_password" required="required" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <label class="checkbox inline" for="remember_me">
+                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                    {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+                </label>
+                <div class="controls">
+                    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-success" />
+                </div>
+            </div>
+        </fieldset>
+    </form>
+{% endblock fos_user_content %}

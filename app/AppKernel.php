@@ -37,6 +37,7 @@ class AppKernel extends Kernel
 
             // new FOQ\ElasticaBundle\FOQElasticaBundle(),
             new Locals\AppBundle\LocalsAppBundle(),
+            new Locals\UserBundle\LocalsUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test', 'local'))) {

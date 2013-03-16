@@ -1,0 +1,61 @@
+{% extends 'LocalsUserBundle::layout.html.twig' %}
+
+{% block title %}{{ 'user_register_page_title'|trans }}{% endblock %}
+
+{% block fos_user_content %}
+    <form class="form-vertical" action="{{ path('fos_user_registration_register') }}" method="post" {{ form_enctype(form) }}>
+        <legend>{{ 'user_register_form'|trans|capitalize }}</legend>
+
+        <fieldset>
+            {{ form_errors(form) }}
+
+            {% if form.username is defined %}
+            <div class="control-group">
+                {{ form_label(form.username) }}
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on ft-icon-user"></span>
+                        {{ form_widget(form.username) }}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="control-group">
+                {{ form_label(form.email) }}
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on ft-icon-at"></span>
+                        {{ form_widget(form.email) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                {{ form_label(form.country, form.country.vars.id) }}
+                <div class="controls">
+                    <div class="input-prepend">
+                        <span class="add-on ft-icon-compass"></span>
+                        {{ form_widget(form.country) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <label class="checkbox inline">
+                    {{ form_widget(form.license) }}
+                    Я согласен с <a target="_blank" href="http://www.footballtop.ru/polzovatelskoe-soglashenie">условиями использования</a>
+                </label>
+                <div class="controls">
+                    <input type="submit" class="btn btn-success" value="{{ 'user_register_submit'|trans }}" />
+                </div>
+            </div>
+
+            <!-- Form rest -->
+            <div style="display: none;">
+                {{ form_rest(form) }}
+            </div>
+
+        </fieldset>
+    </form>
+{% endblock fos_user_content %}

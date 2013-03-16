@@ -4,7 +4,17 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
 
+    <!-- Homepage controller routes -->
     <route id="homepage" pattern="/">
         <default key="_controller">LocalsAppBundle:Homepage:homepage</default>
+    </route>
+    
+    <!-- Rent controller routes -->
+    <route id="rent_list" pattern="/apartment/list">
+        <default key="_controller">LocalsAppBundle:Rent:list</default>
+    </route>
+    <route id="rent_show" pattern="/apartment/{id}">
+        <default key="_controller">LocalsAppBundle:Rent:show</default>
+        <requirement key="id">\d+</requirement>
     </route>
 </routes>

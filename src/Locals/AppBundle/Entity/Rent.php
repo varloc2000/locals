@@ -6,7 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
-use FOS\UserBundle\Entity\User;
+use Locals\UserBundle\Entity\User;
+use Locals\AppBundle\Entity\RentPhoto;
 
 /**
  * @author varloc2000
@@ -36,12 +37,12 @@ class Rent
     private $type;
     
     /**
-     * @ORM\Column(name="rooms", type="integer")
+     * @ORM\Column(name="rooms", type="integer", nullable=true)
      */
     private $rooms;
     
     /**
-     * @ORM\Column(name="area", type="integer")
+     * @ORM\Column(name="area", type="integer", nullable=true)
      * @Assert\NotBlank(message="rent_area_required")
      */
     private $area;
@@ -53,18 +54,18 @@ class Rent
     private $description;
     
     /**
-     * @ORM\ManyToOne(targetEntity="FOS\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Locals\UserBundle\Entity\User")
      */
     private $user;
     
     /**
-     * @Assert\NotBlank
-     * ORM\OneToMany(targetEntity="Locals\AppBundle\Entity\Photo")
+     * @ORM\OneToMany(targetEntity="Locals\AppBundle\Entity\RentPhoto", mappedBy="rent")
+     * @Assert\Count(min=1, minMessage="rent_photos_required")
      */
     private $photos = array();
     
     /**
-     * @ORM\Column(name="price", type="float")
+     * @ORM\Column(name="price", type="float", nullable=true)
      * @Assert\NotBlank(message="rent_description_required")
      */
     private $price;
@@ -197,7 +198,7 @@ class Rent
     /**
      * Set user
      *
-     * @param \FOS\UserBundle\Entity\User $user
+     * @param \Locals\UserBundle\Entity\User $user
      * @return Rent
      */
     public function setUser(User $user = null)
@@ -210,10 +211,43 @@ class Rent
     /**
      * Get user
      *
-     * @return \FOS\UserBundle\Entity\User 
+     * @return \Locals\UserBundle\Entity\User 
      */
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Add photos
+     *
+     * @param \Locals\AppBundle\Entity\RentPhoto $photos
+     * @return Rent
+     */
+    public function addPhoto(RentPhoto $photos)
+    {
+        $this->photos[] = $photos;
+    
+        return $this;
+    }
+
+    /**
+     * Remove photos
+     *
+     * @param \Locals\AppBundle\Entity\RentPhoto $photos
+     */
+    public function removePhoto(RentPhoto $photos)
+    {
+        $this->photos->removeElement($photos);
+    }
+
+    /**
+     * Get photos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
     }
 }

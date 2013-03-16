@@ -1,0 +1,11 @@
+{% extends "LocalsAppBundle::layout.html.twig" %}
+
+{% block content %}
+    <div class="container container-background">
+        <div class="content">
+            <div>
+                {% block fos_user_content %}{% endblock fos_user_content %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
