@@ -21,21 +21,37 @@ class RegistrationFormType extends BaseType
         $builder
             ->add('username', 'text', array(
                 'required' => false,
+                'label' => 'user_registration_username_label',
                 'attr' => array(
                     'placeholder' => 'user_register_username_placeholder'
                 ),
             ))
             ->add('email', 'email', array(
                 'required' => false, 
+                'label' => 'user_registration_email_label',
                 'attr' => array(
                     'placeholder' => 'user_register_email_placeholder'
                 ),
             ))
             ->add('plainPassword', 'repeated', array(
                 'required' => false,
-                'attr' => array(
-                    'placeholder' => 'user_register_plainpassword_placeholder'
-                )
+                'type' => 'password',
+                'invalid_message' => 'user_register_password_message_match',
+                'first_name' => 'password',
+                'second_name' => 'confirmPassword',
+                'first_options'  => array(
+                    'label' => 'user_registration_password_label',
+                    'attr' => array(
+                        'placeholder' => 'user_register_password_placeholder'
+                    ),
+                ),
+                'second_options' => array(
+                    'label' => 'user_registration_password_confirm_label',
+                    'attr' => array(
+                        'placeholder' => 'user_register_confirm_password_placeholder'
+                    ),
+                ),
+                
             ))
             ->add('license', 'checkbox', array(
                 'required' => false,
