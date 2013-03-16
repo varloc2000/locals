@@ -1,7 +1,8 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-
+    - { resource: admin.yml }
+    
 framework:
     #esi:             ~
     translator:      { fallback: "%locale%" }
@@ -89,21 +90,6 @@ fos_user:
     registration:
         form:
             type: locals_user_registration
-
-# Sonata admin bundle
-sonata_block:
-    default_contexts: [cms]
-    blocks:
-        sonata.admin.block.admin_list:
-            contexts:   [admin]
-
-        sonata.block.service.text:
-        sonata.block.service.action:
-        sonata.block.service.rss:
-
-sonata_admin:
-    templates:
-        layout: SonataAdminBundle::layout.html.twig
 
 # Knp menu bundle
 knp_menu:

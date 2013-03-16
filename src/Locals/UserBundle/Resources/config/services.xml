@@ -16,5 +16,16 @@
             <argument type="service" id="fos_user.user_manager" />
             <tag name="kernel.event_subscriber" />
         </service>
+        
+        <!-- Dashboard services -->
+        <service id="locals.user.admin.user" class="Locals\UserBundle\Admin\UserAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="User" label="User"/>
+            <argument />
+            <argument>Locals\UserBundle\Entity\User</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>LocalsUserBundle</argument>
+            </call>
+        </service>
     </services>
 </container>

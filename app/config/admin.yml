@@ -1,0 +1,28 @@
+# Sonata admin bundle
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+
+        sonata.block.service.text:
+        sonata.block.service.action:
+        sonata.block.service.rss:
+
+sonata_admin:
+    title: Sonata Project
+    title_logo: /bundles/sonataadmin/logo_title.png
+    templates:
+        layout: SonataAdminBundle::standard_layout.html.twig
+    dashboard:  
+          blocks:
+              - { position: left,  type: sonata.admin.block.admin_list, settings: { groups: [main] } }
+              - { position: right, type: sonata.admin.block.admin_list, settings: { groups: [users] } }
+
+          groups:
+              main:
+                  items:
+                      - locals.app.admin.rent
+              users:
+                  items:
+                      - locals.user.admin.user
