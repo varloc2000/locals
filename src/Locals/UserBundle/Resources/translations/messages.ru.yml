@@ -1,9 +1,11 @@
 user_register_page_title: Регистрация пользователя
+user_login_page_title: Страница входа
+
 user_register_form: Форма регистарции простого пользователя
-user_register_license_label: Я согласен с
-user_register_license_link: условиями использования
+user_login_form: Форма авторизации
+
 user_register_submit: подтвердить
-user_login_form: форма авторизации
+
 user_register_username_placeholder: Ваше имя
 user_register_email_placeholder: Ваш E-mail
 user_register_password_placeholder: Ваш пароль
@@ -13,3 +15,5 @@ user_registration_username_label: Ваше Имя
 user_registration_email_label: Ваш E-mail
 user_registration_password_label: Пароль
 user_registration_password_confirm_label: Повторите пароль
+user_register_license_label: Я согласен с
+user_register_license_link: условиями использования

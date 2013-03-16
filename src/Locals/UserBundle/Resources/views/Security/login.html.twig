@@ -1,10 +1,12 @@
 {% extends "LocalsUserBundle::layout.html.twig" %}
 
+{% block title %}{{ 'user_login_page_title'|trans }}{% endblock %}
+
 {% block fos_user_content %}
 {% if error %}
     <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
 {% endif %}
-    <form action="{{ path("fos_user_security_check") }}" method="post" class="form-vertical">
+    <form action="{{ path("fos_user_security_check") }}" method="post" class="form-vertical" autocomplete="off">
         <legend>{{ 'user_login_form'|trans|capitalize }}</legend>
 
         <fieldset>
@@ -15,7 +17,7 @@
                 <div class="controls">
                     <div class="input-prepend">
                         <span class="add-on ft-icon-user"></span>
-                        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'user_register_username_placeholder'|trans }}"/>
                     </div>
                 </div>
             </div>
@@ -25,7 +27,7 @@
                 <div class="controls">
                     <div class="input-prepend">
                         <span class="add-on ft-icon-lock"></span>
-                        <input type="password" id="password" name="_password" required="required" />
+                        <input type="password" id="password" name="_password" required="required" placeholder="{{ 'user_register_password_placeholder'|trans }}"/>
                     </div>
                 </div>
             </div>

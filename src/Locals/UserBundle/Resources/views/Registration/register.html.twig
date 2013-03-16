@@ -3,7 +3,7 @@
 {% block title %}{{ 'user_register_page_title'|trans }}{% endblock %}
 
 {% block fos_user_content %}
-    <form class="form-vertical" action="{{ path('fos_user_registration_register') }}" method="post" {{ form_enctype(form) }} autocomplete='off'>
+    <form class="form-vertical" action="{{ path('fos_user_registration_register') }}" method="post" {{ form_enctype(form) }} autocomplete="off">
         <legend>{{ 'user_register_form'|trans|capitalize }}</legend>
 
         <fieldset>
