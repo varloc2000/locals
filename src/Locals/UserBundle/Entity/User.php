@@ -34,7 +34,7 @@ class User extends FosUser
     protected $company;
     
     /**
-     * @ORM\OneToOne(targetEntity="Locals\AppBundle\Entity\Rent", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Locals\AppBundle\Entity\Rent", mappedBy="user")
      */
     protected $rents;
 

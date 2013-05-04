@@ -29,4 +29,31 @@ class UserAdmin extends Admin
             ->add('roles')
         ;
     }
+
+    /**
+     * See Sonata\AdminBundle\Admin
+     * @param string $classnameLabel 
+     */
+    public function setClassnameLabel($classnameLabel)
+    {
+        $this->classnameLabel = $classnameLabel;
+    }
+    
+    /**
+     * See Sonata\AdminBundle\Admin
+     * @param string $baseRoutePattern 
+     */
+    public function setBaseRoutePattern($baseRoutePattern)
+    {
+        $this->baseRoutePattern = $baseRoutePattern;
+    }
+    
+    /**
+     * See Sonata\AdminBundle\Admin
+     * @param string $baseRouteName
+     */
+    public function setBaseRouteName($baseRouteName)
+    {
+        $this->baseRouteName = $baseRouteName;
+    }
 }

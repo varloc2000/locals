@@ -10,10 +10,10 @@ use Locals\AppBundle\Entity\Rent;
 /**
  * @author varloc2000
  * 
- * @ORM\Table(name="rent_photo")
- * @ORM\Entity(repositoryClass="Locals\AppBundle\Repository\RentPhotoRepository")
+ * @ORM\Table(name="rent_type")
+ * @ORM\Entity(repositoryClass="Locals\AppBundle\Repository\TypeRepository")
  */
-class RentPhoto
+class Type
 {
     /**
      * @ORM\Id
@@ -23,22 +23,17 @@ class RentPhoto
     private $id;
     
     /**
-     * @Assert\NotBlank
-     * @ORM\ManyToOne(targetEntity="Locals\AppBundle\Entity\Rent", inversedBy="photos")
+     * @ORM\Column(name="name", type="string")
+     * @Assert\NotBlank(message="rent_name_required")
+     */
+    private $name;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Locals\AppBundle\Entity\Rent", inversedBy="type")
      */
     private $rent;
     
-    /**
-     * @ORM\Column(name="name", type="string")
-     * @Assert\NotBlank(message="photo_name_required")
-     */
-    private $name;
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
+    
     public function getId()
     {
         return $this->id;
@@ -48,7 +43,7 @@ class RentPhoto
      * Set name
      *
      * @param string $name
-     * @return Photo
+     * @return Rent
      */
     public function setName($name)
     {
@@ -65,28 +60,5 @@ class RentPhoto
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set rent
-     *
-     * @param \Locals\AppBundle\Entity\Rent $rent
-     * @return RentPhoto
-     */
-    public function setRent(Rent $rent = null)
-    {
-        $this->rent = $rent;
-    
-        return $this;
-    }
-
-    /**
-     * Get rent
-     *
-     * @return \Locals\AppBundle\Entity\Rent 
-     */
-    public function getRent()
-    {
-        return $this->rent;
     }
 }

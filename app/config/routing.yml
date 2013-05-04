@@ -1,11 +1,11 @@
 locals_app:
     resource: "@LocalsAppBundle/Resources/config/routing.xml"
     prefix:   /
-    
+
 locals_user:
     resource: "@LocalsUserBundle/Resources/config/routing.xml"
     prefix:   /
-    
+
 ## Dasboard routes    
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'

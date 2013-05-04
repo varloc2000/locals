@@ -31,7 +31,7 @@ class Rent
     private $name;
     
     /**
-     * ORM\OneToOne(targetEntity="Locals\AppBundle\Entity\Type")
+     * @ORM\OneToOne(targetEntity="Locals\AppBundle\Entity\Type", mappedBy="rent")
      * @Assert\NotBlank
      */
     private $type;
@@ -54,7 +54,7 @@ class Rent
     private $description;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Locals\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Locals\UserBundle\Entity\User", inversedBy="rents")
      */
     private $user;
     

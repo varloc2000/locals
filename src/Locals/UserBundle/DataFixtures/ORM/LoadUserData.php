@@ -5,7 +5,6 @@ namespace Locals\UserBundle\DataFixtures\ORM;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Locals\UserBundle\Entity\User;
 
 class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
